@@ -9,6 +9,9 @@ use App\Http\Controllers\LearningPathMedalController;
 use App\Http\Controllers\LearningPathUserController;
 use App\Http\Controllers\RentedProductionController;
 use App\Http\Controllers\AsyncSessionController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\TenantController;
 
 Route::apiResources([
     'users' => UserController::class,
@@ -19,6 +22,9 @@ Route::apiResources([
     'learning-path-users' => LearningPathUserController::class,
     'rented-productions' => RentedProductionController::class,
     'async-sessions' => AsyncSessionController::class,
+    'roles' => RoleController::class,
+    'companies' => CompanyController::class,
+    'tenants' => TenantController::class
 ]);
 
 Route::get('/', function () {
