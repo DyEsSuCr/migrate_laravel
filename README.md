@@ -63,14 +63,16 @@
 
 El proyecto incluye un conjunto de rutas de API para manejar las operaciones CRUD para cada entidad. Puedes probar estas rutas utilizando herramientas como Postman o cURL.
 
-#### Ejemplo de rutas:
+### Ejemplo de rutas:
+#### Estructura version 1:
 
-- `GET /v1/companies` - Obtener todas las compañías
-- `GET /v1/companies/{id}` - Obtener una compañía por ID
-- `POST /v1/companies` - Crear una nueva compañía
-- `PUT /v1/companies/{id}` - Actualizar una compañía
-- `DELETE /v1/companies/{id}` - Eliminar una compañía
+- `GET /v1/users` - Obtener todas los usuarios
+- `GET /v1/users/{id}` - Obtener un usuario por ID
+- `POST /v1/users` - Crear una nuevo usuario
+- `PUT /v1/users/{id}` - Actualizar un usuario
+- `DELETE /v1/users/{id}` - Eliminar un usuario
 
+#### Estructura version 2:
 - `GET /v2/companies` - Obtener todas las compañías
 - `GET /v2/companies/{id}` - Obtener una compañía por ID
 - `POST /v2/companies` - Crear una nueva compañía
