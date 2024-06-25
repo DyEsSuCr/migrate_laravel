@@ -4,7 +4,7 @@ namespace App\Models\v2;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tenant;
+use App\Models\v2\Tenant;
 use App\Models\v2\User;
 
 
