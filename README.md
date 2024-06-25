@@ -1,7 +1,7 @@
 ## Clonar el repositorio desde GitHub
 Para clonar un repositorio desde GitHub, utiliza el siguiente comando:
 ```sh
-git clone https://github.com/usuario/repo.git
+git clone https://github.com/DyEsSuCr/migrate_laravel
 ```
 
 ## Otorgar permisos de ejecución al archivo migrate.sh
