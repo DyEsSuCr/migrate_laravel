@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('trial_ends_at')->nullable();
             $table->foreignId('company_id')->constrained()->onDelete('cascade');
             $table->foreignId('role_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tenant_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 

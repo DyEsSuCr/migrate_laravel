@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\v2\User;
 use App\Models\v2\Role;
 use App\Models\v2\Company;
+use App\Models\v2\Tenant;
 
 class UserFactory extends Factory
 
@@ -25,6 +26,7 @@ class UserFactory extends Factory
             'trial_ends_at' => now()->addMonth(),
             'role_id' => Role::factory(),
             'company_id' => Company::factory(),
+            'tenant_id' => Tenant::factory(),
         ];
     }
 
