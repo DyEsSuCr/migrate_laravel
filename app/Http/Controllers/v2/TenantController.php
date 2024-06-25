@@ -9,13 +9,12 @@ class TenantController extends Controller
 {
     public function index()
     {
-        $tenants = Tenant::all();
-        return response()->json($tenants);
+        return Tenant::with('company.users')->get();
     }
 
-    public function create()
+    public function show($id)
     {
-        //
+        return Tenant::with('company.users')->findOrFail($id);
     }
 
     public function store(Request $request)
@@ -24,28 +23,16 @@ class TenantController extends Controller
         return response()->json($tenant, 201);
     }
 
-    public function show(string $id)
+    public function update(Request $request, $id)
     {
-        $tenant = Tenant::find($id);
-        return response()->json($tenant);
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        $tenant = Tenant::find($id);
+        $tenant = Tenant::findOrFail($id);
         $tenant->update($request->all());
-        return response()->json($tenant);
+        return response()->json($tenant, 200);
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $tenant = Tenant::find($id);
-        $tenant->delete();
+        Tenant::destroy($id);
         return response()->json(null, 204);
     }
 }

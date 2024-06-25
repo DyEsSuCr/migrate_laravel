@@ -9,28 +9,18 @@ class ProductionController extends Controller
 {
     public function index()
     {
-        return Production::all();
+        return Production::with('user')->get();
     }
 
-    public function create()
+    public function show($id)
     {
-        //
+        return Production::with('user')->findOrFail($id);
     }
 
     public function store(Request $request)
     {
         $production = Production::create($request->all());
         return response()->json($production, 201);
-    }
-
-    public function show($id)
-    {
-        return Production::find($id);
-    }
-
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request, $id)

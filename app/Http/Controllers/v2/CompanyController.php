@@ -9,13 +9,12 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $companies = Company::all();
-        return response()->json($companies);
+        return Company::with('tenants.users')->get();
     }
 
-    public function create()
+    public function show($id)
     {
-        //
+        return Company::with('tenants.users')->findOrFail($id);
     }
 
     public function store(Request $request)
@@ -24,28 +23,16 @@ class CompanyController extends Controller
         return response()->json($company, 201);
     }
 
-    public function show(string $id)
+    public function update(Request $request, $id)
     {
-        $company = Company::find($id);
-        return response()->json($company);
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        $company = Company::find($id);
+        $company = Company::findOrFail($id);
         $company->update($request->all());
-        return response()->json($company);
+        return response()->json($company, 200);
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $company = Company::find($id);
-        $company->delete();
+        Company::destroy($id);
         return response()->json(null, 204);
     }
 }

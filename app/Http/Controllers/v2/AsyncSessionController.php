@@ -9,28 +9,18 @@ class AsyncSessionController extends Controller
 {
     public function index()
     {
-        return AsyncSession::all();
+        return AsyncSession::with('user')->get();
     }
 
-    public function create()
+    public function show($id)
     {
-        //
+        return AsyncSession::with('user')->findOrFail($id);
     }
 
     public function store(Request $request)
     {
         $asyncSession = AsyncSession::create($request->all());
         return response()->json($asyncSession, 201);
-    }
-
-    public function show($id)
-    {
-        return AsyncSession::find($id);
-    }
-
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request, $id)

@@ -12,15 +12,15 @@ class LearningPathUserController extends Controller
         return LearningPathUser::with('user')->get();
     }
 
+    public function show($id)
+    {
+        return LearningPathUser::with('user')->findOrFail($id);
+    }
+
     public function store(Request $request)
     {
         $learningPathUser = LearningPathUser::create($request->all());
         return response()->json($learningPathUser, 201);
-    }
-
-    public function show($id)
-    {
-        return LearningPathUser::with('user')->find($id);
     }
 
     public function update(Request $request, $id)

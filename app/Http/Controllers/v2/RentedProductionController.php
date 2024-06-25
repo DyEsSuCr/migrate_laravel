@@ -12,15 +12,15 @@ class RentedProductionController extends Controller
         return RentedProduction::with('user')->get();
     }
 
+    public function show($id)
+    {
+        return RentedProduction::with('user')->findOrFail($id);
+    }
+
     public function store(Request $request)
     {
         $rentedProduction = RentedProduction::create($request->all());
         return response()->json($rentedProduction, 201);
-    }
-
-    public function show($id)
-    {
-        return RentedProduction::with('user')->find($id);
     }
 
     public function update(Request $request, $id)

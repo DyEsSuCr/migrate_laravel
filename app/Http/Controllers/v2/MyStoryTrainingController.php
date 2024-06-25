@@ -12,15 +12,15 @@ class MyStoryTrainingController extends Controller
         return MyStoryTraining::with('user')->get();
     }
 
+    public function show($id)
+    {
+        return MyStoryTraining::with('user')->findOrFail($id);
+    }
+
     public function store(Request $request)
     {
         $myStoryTraining = MyStoryTraining::create($request->all());
         return response()->json($myStoryTraining, 201);
-    }
-
-    public function show($id)
-    {
-        return MyStoryTraining::with('user')->find($id);
     }
 
     public function update(Request $request, $id)

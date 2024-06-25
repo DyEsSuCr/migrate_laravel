@@ -9,13 +9,12 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::all();
-        return response()->json($roles);
+        return Role::with('users')->get();
     }
 
-    public function create()
+    public function show($id)
     {
-        //
+        return Role::with('users')->findOrFail($id);
     }
 
     public function store(Request $request)
@@ -24,28 +23,16 @@ class RoleController extends Controller
         return response()->json($role, 201);
     }
 
-    public function show(string $id)
+    public function update(Request $request, $id)
     {
-        $role = Role::find($id);
-        return response()->json($role);
-    }
-
-    public function edit(string $id)
-    {
-        //
-    }
-
-    public function update(Request $request, string $id)
-    {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         $role->update($request->all());
-        return response()->json($role);
+        return response()->json($role, 200);
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $role = Role::find($id);
-        $role->delete();
+        Role::destroy($id);
         return response()->json(null, 204);
     }
 }

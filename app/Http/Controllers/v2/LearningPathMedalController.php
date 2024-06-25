@@ -9,28 +9,18 @@ class LearningPathMedalController extends Controller
 {
     public function index()
     {
-        return LearningPathMedal::all();
+        return LearningPathMedal::with('user')->get();
     }
 
-    public function create()
+    public function show($id)
     {
-        //
+        return LearningPathMedal::with('user')->findOrFail($id);
     }
 
     public function store(Request $request)
     {
         $learningPathMedal = LearningPathMedal::create($request->all());
         return response()->json($learningPathMedal, 201);
-    }
-
-    public function show($id)
-    {
-        return LearningPathMedal::find($id);
-    }
-
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request, $id)

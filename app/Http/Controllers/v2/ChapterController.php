@@ -9,28 +9,18 @@ class ChapterController extends Controller
 {
     public function index()
     {
-        return Chapter::all();
+        return Chapter::with('user')->get();
     }
 
-    public function create()
+    public function show($id)
     {
-        //
+        return Chapter::with('user')->findOrFail($id);
     }
 
     public function store(Request $request)
     {
         $chapter = Chapter::create($request->all());
         return response()->json($chapter, 201);
-    }
-
-    public function show($id)
-    {
-        return Chapter::find($id);
-    }
-
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request, $id)
