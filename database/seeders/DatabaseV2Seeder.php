@@ -3,17 +3,17 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\MyStoryTraining;
-use App\Models\LearningPathUser;
-use App\Models\RentedProduction;
-use App\Models\Chapter;
-use App\Models\Production;
-use App\Models\LearningPathMedal;
-use App\Models\AsyncSession;
-use App\Models\Tenant;
-use App\Models\Company;
-use App\Models\Role;
+use App\Models\v2\User;
+use App\Models\v2\MyStoryTraining;
+use App\Models\v2\LearningPathUser;
+use App\Models\v2\RentedProduction;
+use App\Models\v2\Chapter;
+use App\Models\v2\Production;
+use App\Models\v2\LearningPathMedal;
+use App\Models\v2\AsyncSession;
+use App\Models\v2\Tenant;
+use App\Models\v2\Company;
+use App\Models\v2\Role;
 
 class DatabaseV2Seeder extends Seeder
 {
