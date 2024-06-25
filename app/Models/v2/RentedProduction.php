@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models\v2;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\v2\User;
+
+class RentedProduction extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'id', 'user_id', 'rental_date'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}

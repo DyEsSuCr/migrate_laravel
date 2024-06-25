@@ -50,14 +50,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(RentedProduction::class);
     }
-
-    public function scopeCompany($query, $companyId)
-    {
-        return $query->where('company_id', $companyId);
-    }
-
-    public function scopeTenant($query, $tenantId)
-    {
-        return $query->where('tenant_id', $tenantId);
-    }
 }
