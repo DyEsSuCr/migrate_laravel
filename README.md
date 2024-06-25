@@ -3,7 +3,7 @@
 - PHP >= 8.3
 - Composer
 - Laravel 10.x
-- SQLite (para entorno de desarrollo)
+- SQLite
 
 ## Instalación
 
@@ -30,7 +30,14 @@
 
 
 
-3. ## Otorgar permisos de ejecución al archivo migrate.sh
+4. ## Generar la forma de encriptación
+    ```sh
+    php artisan key:generate
+    ```
+
+
+
+5. ## Otorgar permisos de ejecución al archivo migrate.sh
     Para dar permisos de ejecución al archivo migrate.sh, utiliza el siguiente comando:
     ```sh
     chmod +x migrate.sh
@@ -38,7 +45,7 @@
 
 
 
-4. ## Ejecutar la migración de la base de datos
+6. ## Ejecutar la migración de la base de datos
     Para iniciar la migración de la base de datos, elija entre las versiones v1 y v2 mediante los comandos correspondientes:
     ```sh
     ./migrate.sh -v1  # Para migrar a la versión 1 de la base de datos
@@ -58,8 +65,17 @@ El proyecto incluye un conjunto de rutas de API para manejar las operaciones CRU
 
 #### Ejemplo de rutas:
 
-- `GET /api/companies` - Obtener todas las compañías
-- `GET /api/companies/{id}` - Obtener una compañía por ID
-- `POST /api/companies` - Crear una nueva compañía
-- `PUT /api/companies/{id}` - Actualizar una compañía
-- `DELETE /api/companies/{id}` - Eliminar una compañía
+- `GET /v1/companies` - Obtener todas las compañías
+- `GET /v1/companies/{id}` - Obtener una compañía por ID
+- `POST /v1/companies` - Crear una nueva compañía
+- `PUT /v1/companies/{id}` - Actualizar una compañía
+- `DELETE /v1/companies/{id}` - Eliminar una compañía
+
+- `GET /v2/companies` - Obtener todas las compañías
+- `GET /v2/companies/{id}` - Obtener una compañía por ID
+- `POST /v2/companies` - Crear una nueva compañía
+- `PUT /v2/companies/{id}` - Actualizar una compañía
+- `DELETE /v2/companies/{id}` - Eliminar una compañía
+
+- `GET /v2/users/?company_id={id}` - Obtener los usuarios por ID de compañia
+- `GET /v2/users/?tenant_id={id}` - Obtener los usuarios por ID de arrendatario
